@@ -145,7 +145,7 @@ Planned enhancements include:
 
 ## Screenshots
 
-Add screenshots of the application in the `screenshots/` folder and reference them here.
+file:///C:/Users/sawan/Downloads/VS%20Code.png
 
 Example:
 
