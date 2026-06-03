@@ -46,7 +46,7 @@ The goal of this project was to learn:
 ```text
 local-tinyllama-chatbot/
 │
-├── app.py
+├── localmodel.py
 ├── requirements.txt
 ├── README.md
 └── screenshots/
