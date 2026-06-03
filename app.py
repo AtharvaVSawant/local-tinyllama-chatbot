@@ -6,7 +6,6 @@ st.set_page_config(
     page_icon="🤖",
     layout="wide"
 )
-
 @st.cache_resource
 def load_model():
     llm = HuggingFacePipeline.from_model_id(
