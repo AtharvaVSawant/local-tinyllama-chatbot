@@ -150,7 +150,9 @@ file:///C:/Users/sawan/Downloads/VS%20Code.png
 Example:
 
 ```markdown
-![image alt](https://github.com/AtharvaVSawant/local-tinyllama-chatbot/blob/32144d82d144d2d63f4998135d481a13cfbee151/VS%20Code.png)
+![VS Code Screenshot](https://raw.githubusercontent.com/AtharvaVSawant/local-tinyllama-chatbot/main/VS%20Code.png)
+
+![image alt] (https://github.com/AtharvaVSawant/local-tinyllama-chatbot/blob/1203a7d8ced5f05f6b0f27f440c6544e82c4b19d/Chatbot.png)
 ```
 
 ---
