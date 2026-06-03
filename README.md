@@ -59,7 +59,7 @@ local-tinyllama-chatbot/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/local-tinyllama-chatbot.git
+https://github.com/AtharvaVSawant/local-tinyllama-chatbot/blob/main/README.md
 ```
 
 ### 2. Navigate to the Project Directory
