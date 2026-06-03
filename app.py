@@ -1,6 +1,12 @@
 import streamlit as st
 from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
 
+st.set_page_config(
+    page_title="TinyLlama Chatbot",
+    page_icon="🤖",
+    layout="wide"
+)
+
 @st.cache_resource
 def load_model():
     llm = HuggingFacePipeline.from_model_id(
@@ -12,21 +18,30 @@ def load_model():
             "repetition_penalty": 1.03,
         }
     )
-
     return ChatHuggingFace(llm=llm)
 
 chat_model = load_model()
 
-st.title("Local TinyLlama Chatbot")
+st.title("🤖 TinyLlama Chatbot")
+st.caption("Local AI Assistant powered by TinyLlama")
 
-query = st.text_input("Ask something")
+query = st.text_area(
+    "Ask your question",
+    height=120,
+    placeholder="Type your question here..."
+)
 
-if st.button("Submit") and query:
-    response = chat_model.invoke(query)
+if st.button("🚀 Generate Response", use_container_width=True):
+    if query:
+        with st.spinner("Thinking..."):
+            response = chat_model.invoke(query)
 
-    answer = response.content
+            answer = response.content
 
-    if "<|assistant|>" in answer:
-        answer = answer.split("<|assistant|>")[-1].strip()
+            if "<|assistant|>" in answer:
+                answer = answer.split("<|assistant|>")[-1].strip()
 
-    st.write(answer)
+        st.success("Response Generated")
+
+        st.markdown("### Answer")
+        st.info(answer)
