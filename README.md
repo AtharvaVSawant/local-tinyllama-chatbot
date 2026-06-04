@@ -1,50 +1,67 @@
 # 🦙 Local TinyLlama Chatbot
 
-A lightweight, fully offline AI chatbot powered by **TinyLlama** running locally on your machine — no internet required after model download, no API keys, complete privacy.
+> A lightweight, fully offline AI chatbot powered by **TinyLlama 1.1B** — runs entirely on your machine with no API keys, no internet after setup, and complete privacy.
 
-> 🎓 This is my first LLM project — built to understand local model inference, LangChain pipelines, and Streamlit-based chat interfaces end to end.
+![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI-FF4B4B?logo=streamlit)
+![TinyLlama](https://img.shields.io/badge/TinyLlama-1.1B-blueviolet)
+![LangChain](https://img.shields.io/badge/LangChain-Framework-2d6a4f)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-Transformers-yellow?logo=huggingface)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+> 🎓 My first LLM project — built to understand local model inference, LangChain pipelines, and Streamlit-based chat interfaces end to end.
 
 ---
 
-## 📸 Screenshots
+## 🎬 Demo
 
-> _Chat Interface_
+<!-- After uploading your GIF to the repo, replace the line below with the correct path -->
+<!-- Example: ![Demo](assets/demo.gif) -->
+<!-- If you used a GitHub Issue to host it, paste the URL directly below -->
+
+> *Upload your GIF to `assets/demo.gif` and uncomment the line below*
+<!-- ![Demo](assets/demo.gif) -->
+
+---
+
+## 📸 Screenshot
 
 ![Chat Interface](Chatbot.png)
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-- 💻 Runs **100% locally** after model download
-- 🦙 Powered by **TinyLlama 1.1B** from Hugging Face
-- 🔗 Built with **LangChain** for prompt/chain management
-- 🖥️ Clean chat UI using **Streamlit**
+- 💻 Runs **100% locally** after one-time model download
+- 🦙 Powered by **TinyLlama-1.1B-Chat** from Hugging Face
+- 🔗 Built with **LangChain** for prompt and chain management
+- 🖥️ Clean, minimal chat UI using **Streamlit**
 - 🔒 Complete privacy — your data never leaves your machine
-- 🤗 Uses **Hugging Face Transformers** for model loading
+- ⚡ Lightweight — works even on machines without a GPU
 
 ---
 
 ## 🛠️ Tech Stack
 
 | Component | Technology |
-|-----------|------------|
-| LLM | [TinyLlama-1.1B-Chat](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0) |
+|---|---|
+| LLM | [TinyLlama-1.1B-Chat-v1.0](https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0) |
 | Model Source | Hugging Face Hub |
-| Framework | LangChain |
+| LLM Framework | LangChain |
 | Model Loading | Hugging Face Transformers |
-| Interface | Streamlit |
+| UI | Streamlit |
 | Language | Python |
 
 ---
 
-## 📦 Installation
+## 🚀 Getting Started
 
 ### Prerequisites
 
 - Python 3.8+
+- ~600MB free disk space (for the TinyLlama model)
 
-### Steps
+### Installation
 
 ```bash
 # 1. Clone the repository
@@ -54,20 +71,20 @@ cd local-tinyllama-chatbot
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the chatbot (model will be auto-downloaded from Hugging Face on first run)
+# 3. Run the app
 streamlit run app.py
 ```
 
-> **Note:** On the first run, the TinyLlama model (~600MB) will be automatically downloaded from Hugging Face and cached locally. After that, it runs fully offline.
+> **Note:** On the first run, the TinyLlama model (~600MB) will be automatically downloaded from Hugging Face and cached locally. After that, the app runs fully offline.
 
 ---
 
 ## 💬 Usage
 
-1. Launch the app using the command above
-2. Wait for the model to load (first run may take a moment to download)
-3. Type your message in the chat input
-4. Get instant responses from TinyLlama — all locally!
+1. Launch the app with `streamlit run app.py`
+2. Wait for the model to load (first run may take a minute)
+3. Type any message in the chat input
+4. Get responses from TinyLlama — all on your machine!
 
 ---
 
@@ -75,19 +92,18 @@ streamlit run app.py
 
 ```
 local-tinyllama-chatbot/
-├── app.py               # Streamlit app entry point
+│
+├── app.py               # Streamlit app + LangChain pipeline
 ├── requirements.txt     # Python dependencies
-├── screenshots/         # UI screenshots
-│   ├── screenshot1.png
-│   └── screenshot2.png
+├── Chatbot.png          # Screenshot
 └── README.md
 ```
 
 ---
 
-## ⚙️ Configuration
+## ⚙️ How It Works
 
-Model and chain are set up using LangChain's HuggingFace integration:
+The app uses LangChain's HuggingFace integration to wrap the TinyLlama model in a pipeline:
 
 ```python
 from langchain_community.llms import HuggingFacePipeline
@@ -104,15 +120,17 @@ pipe = pipeline(
 llm = HuggingFacePipeline(pipeline=pipe)
 ```
 
+Streamlit handles the chat interface and session state to maintain conversation history.
+
 ---
 
-## ⚠️ Limitations
+## ⚠️ Known Limitations
 
-- **Response quality** is noticeably lower than large cloud-based models like ChatGPT — this is expected, since TinyLlama has only **1.1 billion parameters** compared to GPT-4's estimated 1 trillion+
-- The model may occasionally produce repetitive or off-topic responses on complex queries
-- Best suited for simple conversational tasks and short-context questions
+- **Response quality** is lower than large cloud models (GPT-4, Claude) — this is expected. TinyLlama has **1.1B parameters** vs. GPT-4's estimated 1T+.
+- May produce repetitive or off-topic responses on complex queries.
+- Best suited for simple conversational tasks and short-context questions.
 
-These are known tradeoffs of running a tiny model locally, and the primary goal of this project was learning the **end-to-end pipeline** — not matching cloud model performance.
+These are known tradeoffs of running a tiny model locally. The goal of this project was learning the **end-to-end local LLM pipeline**, not matching cloud performance.
 
 ---
 
@@ -129,19 +147,14 @@ streamlit
 
 ---
 
-## 🤝 Contributing
+## 📬 Contact
 
-Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
+**Atharva Sawant**
+📧 [atharvasawant3183@gmail.com](mailto:atharvasawant3183@gmail.com)
+🔗 [GitHub Profile](https://github.com/AtharvaVSawant)
 
 ---
 
 ## 📄 License
 
-[MIT](LICENSE)
-
----
-
-## 👤 Author
-
-**Atharva Sawant**  
-GitHub: [@AtharvaVSawant](https://github.com/AtharvaVSawant)
+This project is licensed under the [MIT License](LICENSE).
