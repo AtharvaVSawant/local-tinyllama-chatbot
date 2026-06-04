@@ -89,9 +89,9 @@ local-tinyllama-chatbot/
 │
 ├── app.py               # Streamlit app + LangChain pipeline
 ├── requirements.txt     # Python dependencies
-├── Chatbot.png          # Screenshot
+├── demo.gif             # Demo recording
+├── LICENSE
 └── README.md
-```
 
 ---
 
