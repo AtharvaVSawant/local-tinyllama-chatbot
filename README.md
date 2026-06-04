@@ -19,8 +19,8 @@
 <!-- Example: ![Demo](assets/demo.gif) -->
 <!-- If you used a GitHub Issue to host it, paste the URL directly below -->
 
-> *Upload your GIF to `assets/demo.gif` and uncomment the line below*
-<!-- ![Demo](assets/demo.gif) -->
+
+![Demo](demo.gif)
 
 ---
 
