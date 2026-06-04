@@ -24,12 +24,6 @@
 
 ---
 
-## 📸 Screenshot
-
-![Chat Interface](Chatbot.png)
-
----
-
 ## ✨ Features
 
 - 💻 Runs **100% locally** after one-time model download
